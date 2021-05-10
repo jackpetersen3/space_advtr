@@ -1,0 +1,8 @@
+#ignore files named main
+main
+
+#ignore files ending in .out
+*.out
+
+#ignore files ending with .o
+*.o
