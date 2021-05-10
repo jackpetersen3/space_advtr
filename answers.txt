@@ -1,0 +1,4 @@
+1. I am comfortable using both VSCode and vim. I mostly use VScode on my home computer, and I would say I am pretty good at using it's features
+    as I use it most every day.
+2. I use ubuntu for my home terminal, and bash for my shell.
+3. I changed the permissions on run.sh and gave it read write and execute permissions. Although I believe it only needed execute permissions as I am writing this.
