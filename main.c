@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
     scanf("%s", name );
     printf("Nice to meet you, %s. My name is Eliza, I'm an old friend of Alexa\n", name);
     printf("Let's go on an adventure\n");
-    while(flag == 0) {
+    do {
         printf("Shall I randomly choose a planet for you to visit?\n");
         scanf("%s", input);
         if(strcmp(input, "Y") == 0 || strcmp(input, "y") == 0) {
@@ -22,13 +22,15 @@ int main(int argc, char *argv[])
             flag = 1;
         }
         else if(strcmp(input, "N") == 0 || strcmp(input, "n") == 0) {
-            printf("Name the planet you would like to visit: \n");
+            printf("Name the planet you would like to visit...\n");
             scanf("%s", planet);
             printf("Traveling to Pluto...\n");
             printf("I don't care what they say, it's still a planet\n");
             flag = 1;
         }
-        
-    }
+        else {
+            printf("Sorry, I don't understand..\n");
+        }
+    } while(flag == 0);
     return 0;
 }
