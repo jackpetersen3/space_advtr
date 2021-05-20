@@ -4,12 +4,14 @@
 #include <string.h>
 #include <unistd.h>
 
+//function declarations
 void getName(void);
-void planetLoop(void);
+void chooseAdventure(void);
+
 int main(int argc, char *argv[])
 {
     getName();
-    planetLoop();
+    chooseAdventure();
     return 0;
 }
 
@@ -23,7 +25,7 @@ void getName(void) {
     printf("Let's go on an adventure\n");
 }
 
-void planetLoop(void) {
+void chooseAdventure(void) {
     int flag = 0;
     char input[30], planet[20];
     do {
