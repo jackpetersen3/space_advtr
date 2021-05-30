@@ -4,10 +4,10 @@
 #include <unistd.h>
 #include <json-c/json.h>
 
-struct json_object *name;
+ json_object *name;
 struct json_object *description;
 
 //function declarations
 void getName(void);
-void chooseAdventure(void);
-void parse_json(char *filename);
+void chooseAdventure(struct json_object *, struct json_object *, size_t);
+//void parse_json(char *filename);

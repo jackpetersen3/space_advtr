@@ -10,7 +10,7 @@ void getName(void) {
     printf("Let's go on an adventure\n");
 }
 
-void chooseAdventure(void) {
+void chooseAdventure(struct json_object * name, struct json_object * description, size_t array_len) {
     int flag = 0;
     char input[30], planet[20];
     do {
@@ -36,17 +36,20 @@ void chooseAdventure(void) {
 
 }
 
-void parse_json(char *filename)
+/*void parse_json(char *filename)
 {
     FILE *fd;
     char buffer[4096];
-    struct json_object *name;
-    struct json_object *description;
+    struct json_object *name = json_object_new_array();
+    struct json_object *description = json_object_new_array();
+    struct json_object *temp_name;
+    struct json_object *temp_description;
 
-    description = json_object_new_array();
+
 
     struct json_object *parsed_json;
     struct json_object *planets;
+    struct json_object *planet_obj; 
 
     size_t array_len;
     size_t i = 0;
@@ -62,12 +65,11 @@ void parse_json(char *filename)
     array_len = json_object_array_length(planets);
 
     for(i = 0; i < array_len; i++) {
-        json_object_array_add(description, json_object_array_get_idx(planets, i));
-        //printf("%s\n",json_object_get_string(description));
+        planet_obj = json_object_array_get_idx(planets, i);
+        json_object_object_get_ex(planet_obj, "name", &temp_name);
+        json_object_object_get_ex(planet_obj, "description", &temp_description);
+        json_object_array_add(name, temp_name);
+        json_object_array_add(description, temp_description);
+        //printf("Name: %s\n", json_object_get_string(name));
     }
-
-   // printf("Name: %s\n", json_object_get_string(name));
-   // printf("Description: %s\n", json_object_get_string(description));
-
-
-}
+}*/
