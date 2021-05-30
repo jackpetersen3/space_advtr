@@ -35,3 +35,39 @@ void chooseAdventure(void) {
     } while(flag == 0);
 
 }
+
+void parse_json(char *filename)
+{
+    FILE *fd;
+    char buffer[4096];
+    struct json_object *name;
+    struct json_object *description;
+
+    description = json_object_new_array();
+
+    struct json_object *parsed_json;
+    struct json_object *planets;
+
+    size_t array_len;
+    size_t i = 0;
+
+    fd = fopen(filename, "r");
+    fread(buffer, 4096, 1, fd);
+    fclose(fd);
+
+    parsed_json = json_tokener_parse(buffer);
+
+    json_object_object_get_ex(parsed_json, "planets", &planets);
+
+    array_len = json_object_array_length(planets);
+
+    for(i = 0; i < array_len; i++) {
+        json_object_array_add(description, json_object_array_get_idx(planets, i));
+        //printf("%s\n",json_object_get_string(description));
+    }
+
+   // printf("Name: %s\n", json_object_get_string(name));
+   // printf("Description: %s\n", json_object_get_string(description));
+
+
+}

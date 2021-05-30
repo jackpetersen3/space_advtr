@@ -1,2 +1,2 @@
 #!/bin/bash
-gcc main.c functions.c -Wall -o main
+gcc main.c functions.c -Wall -ljson-c -o main
