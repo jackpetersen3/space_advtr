@@ -12,16 +12,12 @@ int main(int argc, char *argv[])
     char buffer[4096];
     struct json_object *name = json_object_new_array();
     struct json_object *description = json_object_new_array();
-    struct json_object *temp_name;
-    struct json_object *temp_description;
-    struct json_object *parsed_json;
-    struct json_object *planets;
-    struct json_object *planet_obj; 
-
+    struct json_object *temp_name, *temp_description, *parsed_json, *planets, *planet_obj;
+    
     size_t array_len;
     size_t i = 0;
 
-    fd = fopen("planetarySystem.json", "r");
+    fd = fopen(argv[2], "r");
     fread(buffer, 4096, 1, fd);
     fclose(fd);
 
