@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
     size_t array_len;
     size_t i = 0;
 
-    fd = fopen(argv[2], "r");
+    fd = fopen("planetarySystem.json", "r");
     fread(buffer, 4096, 1, fd);
     fclose(fd);
 

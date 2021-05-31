@@ -6,7 +6,8 @@ void getName(void) {
     printf("Welcome to the solar system\n");
     printf("There are 9 planets to explore\n");
     printf("What is your name?\n");
-    scanf("%s", name );
+    fgets(name, 30, stdin);
+    name[strcspn(name, "\n")] = 0;
     printf("Nice to meet you, %s. My name is Eliza, I'm an old friend of Alexa\n", name);
     printf("Let's go on an adventure\n");
 }
