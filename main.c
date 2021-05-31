@@ -1,16 +1,19 @@
 #include "functions.h"
 
+//this is the main function where all function call are made
+//the parser function is temporailiy in here while i figure out how to make json objects 
+//accesible to other functions;
 int main(int argc, char *argv[])
 {
+    //set randdom time seed for random function
+    srand((unsigned)time(NULL));
+    //the general methods used for this parser function are based on those found here: https://progur.com/2018/12/how-to-parse-json-in-c.html
     FILE *fd;
     char buffer[4096];
     struct json_object *name = json_object_new_array();
     struct json_object *description = json_object_new_array();
     struct json_object *temp_name;
     struct json_object *temp_description;
-
-
-
     struct json_object *parsed_json;
     struct json_object *planets;
     struct json_object *planet_obj; 
@@ -36,6 +39,8 @@ int main(int argc, char *argv[])
         json_object_array_add(description, temp_description);
         //printf("Name: %s\n", json_object_get_string(name));
     }
+
+    //function calls
     getName();
     chooseAdventure(name, description, array_len);
     return 0;

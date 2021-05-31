@@ -3,6 +3,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <json-c/json.h>
+#include <time.h>
 
  json_object *name;
 struct json_object *description;
@@ -11,4 +12,5 @@ struct json_object *description;
 void getName(void);
 void chooseAdventure(struct json_object *, struct json_object *, size_t);
 int is_planet(char *, struct json_object *, struct json_object *, size_t);
+void random_planet(struct json_object *, struct json_object *, size_t);
 //void parse_json(char *filename);
